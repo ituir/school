@@ -151,12 +151,26 @@ def main():
         # Geen argumenten - analyseer alle bestanden / No arguments - analyze all files
         list_and_analyze_files()
     elif len(sys.argv) == 2:
-        # Een argument - extraheer tekst uit specifiek bestand / One argument - extract text from specific file
-        extract_text_from_file(sys.argv[1])
+        arg = sys.argv[1]
+        if arg in ['--help', '-h', 'help']:
+            print("File Reader for School Repository / Bestandslezer voor School Repository")
+            print()
+            print("Gebruik / Usage:")
+            print("  python file_reader.py                    # Analyseer alle bestanden / Analyze all files")
+            print("  python file_reader.py <bestandsnaam>     # Extraheer tekst / Extract text")
+            print("  python file_reader.py --help             # Toon deze help / Show this help")
+            print()
+            print("Voorbeelden / Examples:")
+            print("  python file_reader.py")
+            print("  python file_reader.py 601742-01_bvj_4vwo_lob_a_bladerboek.pdf")
+        else:
+            # Een argument - extraheer tekst uit specifiek bestand / One argument - extract text from specific file
+            extract_text_from_file(arg)
     else:
         print("Gebruik / Usage:")
         print("  python file_reader.py                    # Analyseer alle bestanden / Analyze all files")
         print("  python file_reader.py <bestandsnaam>     # Extraheer tekst / Extract text")
+        print("  python file_reader.py --help             # Toon deze help / Show this help")
         print()
         print("Voorbeelden / Examples:")
         print("  python file_reader.py")
